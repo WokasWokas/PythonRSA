@@ -83,7 +83,7 @@ class Form(Tk):
                 file.write('\n'.join(["{}={}".format(key, value) for key, value in self.data.items()]))
                 self.update_status_bar("Data saved in {}".format(file.name))
         except Exception as error:
-            self.update_status_bar("Error: {}".format(error))
+            self.update_status_bar("Warning: {}".format(error))
 
     def call_openfile(self):
         try:
@@ -95,7 +95,7 @@ class Form(Tk):
                     self.data[key] = AnyStrToInt(value[0] if len(value) == 1 else value)
                 self.update_status_bar("Data readed from {}".format(file.name))
         except Exception as error:
-            self.update_status_bar("Error: {}".format(error))
+            self.update_status_bar("Warning: {}".format(error))
 
     def hello_message(self):
         text = """                          Welcome to RSA Encryption program.

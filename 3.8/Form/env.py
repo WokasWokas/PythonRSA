@@ -79,7 +79,7 @@ class Form(Tk):
                 file.write('\n'.join([f"{key}={value}" for key, value in self.data.items()]))
                 self.update_status_bar(f"Data saved in {file.name}")
         except Exception as error:
-            self.update_status_bar(f"Error: {error}")
+            self.update_status_bar(f"Warning: {error}")
 
     def call_openfile(self) -> None:
         try:
@@ -91,7 +91,7 @@ class Form(Tk):
                     self.data[key] = AnyStrToInt(value[0] if len(value) == 1 else value)
                 self.update_status_bar(f"Data readed from {file.name}")
         except Exception as error:
-            self.update_status_bar(f"Error: {error}")
+            self.update_status_bar(f"Warning: {error}")
 
     def hello_message(self) -> None:
         text = """                          Welcome to RSA Encryption program.
@@ -166,3 +166,4 @@ class ContextMenu(Menu):
             self.tk_popup(event.x_root, event.y_root)
         finally:
             self.grab_release()
+        
